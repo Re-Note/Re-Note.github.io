@@ -25,8 +25,11 @@
       {% endif %}
     </h2>
     {% include page__meta.html type=include.type %}
-    {% if post.excerpt %}<p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}
-      <img src="{{ teaser | relative_url }}" alt="">
+    {% if post.excerpt %}
+      <img src="{{ teaser | relative_url }}" alt="" style="float: left; margin-right: 10px; width: 200px; height: 100px;">
+      <p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</p>
+    <!-- <p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}
+      <img src="{{ teaser | relative_url }}" alt=""> -->
     </p>{% endif %}
   </article>
 </div>
