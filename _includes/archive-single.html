@@ -27,9 +27,12 @@
     {% include page__meta.html type=include.type %}
     {% if post.excerpt %}
       <div style="display: flex;">
-        <img src="{{ teaser | relative_url }}" alt="" style="width: 200px; height: 100px; margin-right: 10px;">
+        {% if teaser %}
+          <img src="{{ teaser | relative_url }}" alt="" style="width: 200px; height: 100px; margin-right: 10px;">
+        {% endif %}
         <p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</p>
       </div>
     {% endif %}
-  </article>
+    </article>
+    
 </div>
