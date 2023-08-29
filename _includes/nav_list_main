@@ -18,30 +18,8 @@
                 <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/cpp 주소의 글로 링크 연결-->
                 <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
                 {% for category in site.categories %}
-                    {% if category[0] == "정보처리기사" %}
+                    {% if category[0] == "certificate" %}
                         <li><a href="/categories/certificate" class="">정보처리기사 ({{category[1].size}})</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-            <ul>
-                {% for category in site.categories %}
-                    {% if category[0] == "토익" %}
-                        <li><a href="/categories/toeic" class="">토익 ({{category[1].size}})</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-        <span class="nav__sub-title">code</span>
-            <ul>
-                {% for category in site.categories %}
-                    {% if category[0] == "블로그 개발 일지" %}
-                        <li><a href="/categories/github_blog" class="">블로그 개발 일지 ({{category[1].size}})</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-            <ul>
-                {% for category in site.categories %}
-                    {% if category[0] == "코드" %}
-                        <li><a href="/categories/code" class="">코드 ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
