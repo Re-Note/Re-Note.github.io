@@ -24,11 +24,11 @@
             </ul>
       </li>
       <li>
-        <span class="nav__sub-title">Computer_Science</span>
+        <span class="nav__sub-title">computer_science</span>
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "Computer_Science" %}
-                        <li><a href="/categories/computer_science" class="">Computer_Science ({{category[1].size}})</a></li>
+                    {% if category[0] == "computer_science" %}
+                        <li><a href="/categories/computer_science" class="">computer_science ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
