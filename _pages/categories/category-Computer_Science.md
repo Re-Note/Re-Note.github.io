@@ -1,5 +1,5 @@
 ---
-title: "CS 지식"
+title: "컴퓨터 과학"
 layout: archive
 permalink: categories/Computer_Science
 author_profile: true
