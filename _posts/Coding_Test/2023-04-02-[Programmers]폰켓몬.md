@@ -1,7 +1,7 @@
 ---
 title:  "폰켓몬"
-categories: "code"
-tag: [code]
+categories: "coding_test"
+tag: [coding_test]
 toc: true
 ---
 

@@ -1,10 +1,9 @@
 ---
 title:  "카펫"
-categories: "code"
-tag: [code]
+categories: "coding_test"
+tag: [coding_test]
 toc: true
 ---
-
 https://school.programmers.co.kr/learn/courses/30/lessons/42842
 
 ## 카펫

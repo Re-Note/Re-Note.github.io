@@ -1,7 +1,7 @@
 ---
 title:  "더 맵게"
-categories: "code"
-tag: [code]
+categories: "coding_test"
+tag: [coding_test]
 toc: true
 ---
 
