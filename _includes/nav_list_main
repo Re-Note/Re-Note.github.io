@@ -32,7 +32,7 @@
                 <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
                 {% for category in site.categories %}
                     {% if category[0] == "Computer_Science" %}
-                        <li><a href="/categories/computer_science" class="">Computer Science ({{category[1].size}})</a></li>
+                        <li><a href="/categories/computer_science" class="">Computer_Science ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
@@ -46,7 +46,7 @@
                 <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
                 {% for category in site.categories %}
                     {% if category[0] == "Coding_Test" %}
-                        <li><a href="/categories/coding_test" class="">Coding Test ({{category[1].size}})</a></li>
+                        <li><a href="/categories/coding_test" class="">Coding_Test ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
