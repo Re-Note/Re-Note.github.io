@@ -1,5 +1,5 @@
 ---
-title:  "더 맵게"
+title:  "카펫"
 categories: "code"
 tag: [code]
 toc: true
