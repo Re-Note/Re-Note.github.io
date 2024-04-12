@@ -32,34 +32,22 @@ arr	answer
 import java.util.*;
 
 public class Solution {
-    // 배열의 중복값을 제거해서 반환
-    // 스택을 사용해 저장할때 이전 요소와 현재 요소를 비교해서 다른 경우만 리스트에 요소를 추가함
-    // 결과적으로 리스트엔 중복값이 없어짐
-    // solution 메서드의 정의
-    public int[] solution(int []arr) {
-        // 정수형 리스트 Listanswer 생성
-        List<Integer> Listanswer = new ArrayList<>();
-        // 리스트에 배열의 첫 번째 요소 추가
-        Listanswer.add(arr[0]);
-        
-        // 배열의 두 번째 요소부터 마지막 요소까지 반복
+    // 반환 = 중복값이 제거된 배열
+    // 저장용 answer ArrayList 사용
+    public List<Integer> solution(int []arr) {
+        // 중복값이 제거된 배열을 저장할 리스트 생성
+        List<Integer> answer = new ArrayList<>();
+        // 배열의 첫 번째 요소를 answer 리스트에 추가
+        answer.add(arr[0]);
+        // 배열을 순회하며 중복값을 제거하여 answer 리스트에 추가
         for(int i = 1; i < arr.length; i++){
-            // 현재 요소와 이전 요소가 다를 경우 => 같은 경우, 즉 연속적으로 나타나는 중복 값인 경우 리스트에 추가하지 않음
+            // 현재 요소가 바로 이전 요소와 다를 경우에만 추가
             if(arr[i] != arr[i - 1]){
-                // 리스트에 현재 요소 추가
-                Listanswer.add(arr[i]);
+                answer.add(arr[i]);
             }
         }
-        // 리스트의 크기만큼의 정수형 배열 생성
-        int[] answer = new int[Listanswer.size()];
-        // 리스트의 요소를 배열에 복사
-        for(int i = 0; i < Listanswer.size(); i++){
-            answer[i] = Listanswer.get(i);
-        }
-        // 변환된 배열 반환
+        // 중복값이 제거된 배열 리스트 반환
         return answer;
     }
 }
-
-
 ```

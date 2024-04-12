@@ -41,31 +41,35 @@ scoville	K	return
 import java.util.*;
 
 class Solution {
+    // 반환 = 모든 음식의 스코빌 지수를 K 이상으로 만들기 위해 섞어야 하는 최소 횟수
+    // 자료 저장용 pq PriorityQueue 사용
     public int solution(int[] scoville, int K) {
-        // 우선순위 큐에 scoville 값을 저장.
-        // scoville 값의 peek 를 min 값으로 지정
-        // min 값을 두번 poll 해서 섞은 음식으로 만듬.
-        // 다시 우선순위 큐에 섞은 음식의 scoville 값을 넣고 min 값을 최신화
-        // min < K 가 아닐때까지 반복 (반복 카운트 answer)
-        // 결과로 우선순위 큐에 남아 있는 값은 모두 K 이상
-        int answer = 0;
+        int answer = 0; // 섞은 횟수를 저장하는 변수
+
+        // 우선순위 큐(pq)를 생성하여 스코빌 지수를 저장
         PriorityQueue<Integer> pq = new PriorityQueue<>();
         for(int i = 0; i < scoville.length; i++){
             pq.add(scoville[i]);
         }
         
+        // 현재 가장 낮은 스코빌 지수를 저장하는 변수
         int min = pq.peek();
+        // 가장 낮은 스코빌 지수가 K 미만인 동안 반복
         while(min < K){
-            if(pq.size() >= 2){
-                pq.add(pq.poll() + pq.poll() * 2);
-                min = pq.peek();
-                answer++;
-            }
-            else{
+            // 만약 음식이 2개 미만이면 조합할 수 없으므로 -1 반환
+            if(pq.size() < 2){
                 return -1;
             }
+            else{
+                // 가장 낮은 스코빌 지수를 가진 음식 2개를 꺼내서 섞은 후 다시 큐에 추가
+                pq.add(pq.poll() + pq.poll() * 2);
+                // 섞은 후 가장 낮은 스코빌 지수를 갱신
+                min = pq.peek();
+                // 섞은 횟수 증가
+                answer++;
+            }
         }
-        return answer;
+        return answer; // 최소 섞은 횟수 반환
     }
 }
 ```

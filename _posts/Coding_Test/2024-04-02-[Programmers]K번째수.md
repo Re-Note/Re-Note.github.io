@@ -34,39 +34,41 @@ array	commands	return
 
 ## 문제 해결
 ```java
-import java.util.Arrays;
+import java.util.*;
 
 class Solution {
+    // 반환 = i번째 숫자부터 j번째 숫자까지 자르고 정렬했을 때, k번째에 있는 수들의 배열
+    // k번째 수 저장용 answer, 자른 배열 저장용 temp 배열 사용
     public int[] solution(int[] array, int[][] commands) {
-        // 결과 배열의 크기를 commands 배열의 길이로 설정합니다.
+        // commands 배열의 길이만큼 결과를 저장할 배열을 생성합니다.
         int[] answer = new int[commands.length];
         
-        // commands 배열의 각 행에 대해 반복합니다.
+        // commands 배열을 순회하면서 각각의 요소에 대한 작업을 수행합니다.
         for(int n = 0; n < commands.length; n++){
-            // i, j, k 값을 추출합니다.
-            int i = commands[n][0]; // 부분 배열의 시작 인덱스
-            int j = commands[n][1]; // 부분 배열의 끝 인덱스
-            int k = commands[n][2]; // k번째 작은 수
+            // 현재 작업에 필요한 i, j, k 값을 가져옵니다.
+            int i = commands[n][0];
+            int j = commands[n][1];
+            int k = commands[n][2];
             
-            // 부분 배열의 길이만큼의 크기를 가진 임시 배열을 생성합니다.
-            int[] idxArray = new int[j - i + 1];
-            int idx = 0; // 임시 배열에 값을 채우기 위한 인덱스 변수
+            // i부터 j까지의 부분 배열을 저장할 임시 배열을 생성합니다.
+            int[] temp = new int[j - i + 1];
+            int idx = 0;
             
-            // 원본 배열에서 부분 배열을 추출하여 임시 배열에 저장합니다.
-            for(int l = i - 1; l < j; l++){
-                idxArray[idx] = array[l];
+            // 원본 배열에서 i부터 j까지의 요소를 임시 배열에 복사합니다.
+            for(int m = i - 1; m < j; m++){
+                temp[idx] = array[m];
                 idx++;
             }
             
-            // 부분 배열을 오름차순으로 정렬합니다.
-            Arrays.sort(idxArray);
+            // 임시 배열을 정렬합니다.
+            Arrays.sort(temp);
             
-            // k번째 원소를 결과 배열에 저장합니다.
-            answer[n] = idxArray[k - 1];
+            // 정렬된 배열에서 k번째 요소를 결과 배열에 저장합니다.
+            answer[n] = temp[k - 1];
         }
+        
         // 결과 배열을 반환합니다.
         return answer;
     }
 }
-
 ```

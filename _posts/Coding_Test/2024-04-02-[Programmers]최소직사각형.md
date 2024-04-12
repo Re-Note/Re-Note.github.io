@@ -47,21 +47,26 @@ sizes	result
 ## 문제 풀이
 ```java
 class Solution {
+    // 반환 = 모든 명함을 수납할 수 있는 가장 작은 지갑의 크기
     public int solution(int[][] sizes) {
+        // 가장 큰 너비를 저장할 변수를 초기화합니다.
         int maxWidth = 0;
+        // 가장 큰 높이를 저장할 변수를 초기화합니다.
         int maxHeight = 0;
         
+        // 주어진 명함들의 각각의 너비와 높이를 반복하여 처리합니다.
         for (int i = 0; i < sizes.length; i++) {
+            // 현재 명함의 너비를 가져옵니다.
             int width = sizes[i][0];
+            // 현재 명함의 높이를 가져옵니다.
             int height = sizes[i][1];
-            
-            // 각 명함의 가로 길이와 세로 길이 중에서 더 큰 값을 maxWidth로 설정
+
+            // 현재 명함의 너비와 높이 중 더 큰 값을 maxWidth에 저장합니다.
             maxWidth = Math.max(maxWidth, Math.max(width, height));
-            // 각 명함의 세로 길이와 가로 길이 중에서 더 큰 값을 maxHeight로 설정
+            // 현재 명함의 너비와 높이 중 더 작은 값을 maxHeight에 저장합니다.
             maxHeight = Math.max(maxHeight, Math.min(width, height));
         }
-        
-        // 가장 큰 가로 길이와 세로 길이를 곱하여 지갑의 크기를 반환
+        // 가장 큰 너비와 가장 작은 높이를 곱하여 결과를 반환합니다.
         return maxWidth * maxHeight;
     }
 }

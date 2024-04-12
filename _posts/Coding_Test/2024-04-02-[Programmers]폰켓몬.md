@@ -50,22 +50,30 @@ nums	result
 import java.util.*;
 
 class Solution {
+    // 반환 = 가장 많은 종류의 폰켓몬 선택시 최대 폰켓몬 종류 수
+    // 중복 저장용 duplicate HashSet 사용
     public int solution(int[] nums) {
-        int answer = 0;
-        int halfN = nums.length / 2;
-        HashSet<Integer> set = new HashSet<>();
-        HashSet<Integer> duplicate = new HashSet<>();
-        for(int i = 0; i < nums.length; i++){
-            if(set.add(nums[i])){
-                duplicate.add(nums[i]);
-            }
+        int answer = 0; // 반환할 최대 폰켓몬 종류 수 초기화
+
+        HashSet<Integer> duplicate = new HashSet<>(); // 중복을 제거하기 위한 HashSet 생성
+
+        // 주어진 배열(nums)을 순회하며 HashSet에 폰켓몬 종류를 추가
+        for (int i = 0; i < nums.length; i++) {
+            duplicate.add(nums[i]);
         }
+        
+        // HashSet에 저장된 폰켓몬 종류의 수를 반환 값으로 설정
         answer = duplicate.size();
-        if(answer > halfN){
-            answer = halfN;
+
+        // 만약 선택할 수 있는 폰켓몬 수의 절반보다 많은 종류의 폰켓몬을 가지고 있다면,
+        // 최대 선택 가능한 폰켓몬 종류 수는 폰켓몬 수의 절반이 됨
+        if (answer > nums.length / 2) {
+            answer = nums.length / 2;
         }
+
+        // 최대 선택 가능한 폰켓몬 종류 수 반환
         return answer;
-        // 배열 nums에서 종류 m개 => 총 n마리, m = n/2 일 경우 m 값.
     }
 }
+
 ```
