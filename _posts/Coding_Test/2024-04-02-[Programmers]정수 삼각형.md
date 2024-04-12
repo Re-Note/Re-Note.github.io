@@ -26,7 +26,8 @@ triangle	result
 ## 문제 풀이
 ```java
 class Solution {
-    // 주어진 삼각형에서 가장 큰 합을 구하는 메소드
+    // 반환 = 삼각형의 꼭대기에서 바닥까지 이어지는 경로의 합 중 가장 큰 것
+    // dp 를 구현해 층 마다 이전 층의 합을 저장해두고 계산
     public int solution(int[][] triangle) {
         // DP 배열 초기화
         int[][] dp = new int[triangle.length][triangle.length];
@@ -55,5 +56,4 @@ class Solution {
         return answer;
     }
 }
-
 ```
