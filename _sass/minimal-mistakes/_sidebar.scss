@@ -7,113 +7,99 @@
    ========================================================================== */
 
 .sidebar {
-  @include clearfix();
-  // @include breakpoint(max-width $large) {
-  //   /* fix z-index order of follow links */
-  //   position: relative;
-  //   z-index: 10;
-  //   -webkit-transform: translate3d(0, 0, 0);
-  //   transform: translate3d(0, 0, 0);
-  // }
+  @include clearfix(); // clearfix 믹스인 적용
 
-  @include breakpoint($large) {
-    float: left;
-    width: calc(#{$right-sidebar-width-narrow} - 1em);
-    opacity: 0.75;
-    -webkit-transition: opacity 0.2s ease-in-out;
-    transition: opacity 0.2s ease-in-out;
+  @include breakpoint($large) { // 미디어 쿼리: $large 이상일 때
+    float: left; // 왼쪽으로 플로팅
+    width: calc(#{$right-sidebar-width-narrow} - 1em); // 너비 계산
+    opacity: 0.75; // 투명도
+    -webkit-transition: opacity 0.2s ease-in-out; // 웹킷 전환 효과
+    transition: opacity 0.2s ease-in-out; // 전환 효과
 
-    &:hover {
-      opacity: 1;
+    &:hover { // 호버 상태일 때
+      opacity: 1; // 투명도 1로 설정
     }
 
-    &.sticky {
-      overflow-y: auto;
-      /* calculate height of nav list
-         viewport height - nav height - masthead x-padding
-      */
+    &.sticky { // sticky 클래스가 적용됐을 때
+      overflow-y: auto; // y축 스크롤
+      /* 내비게이션 리스트의 높이 계산: viewport 높이 - 내비게이션 높이 - 마스트헤드 x 패딩 */
       max-height: calc(100vh - #{$nav-height} - 2em);
     }
   }
 
-  @include breakpoint($x-large) {
-    width: calc(#{$right-sidebar-width} - 1em);
+  @include breakpoint($x-large) { // 미디어 쿼리: $x-large 이상일 때
+    width: calc(#{$right-sidebar-width} - 1em); // 너비 계산
   }
 
-  > * {
+  > * { // 자식 요소들의 상단과 하단 여백 설정
     margin-top: 1em;
     margin-bottom: 1em;
   }
 
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  h2, h3, h4, h5, h6 { // 제목 요소들의 하단 여백과 글꼴 설정
     margin-bottom: 0;
     font-family: $sans-serif-narrow;
   }
 
-  p,
-  li {
+  p, li { // 문단과 리스트 요소의 글꼴, 글자 크기, 줄 간격 설정
     font-family: $sans-serif;
     font-size: $type-size-6;
     line-height: 1.5;
   }
 
-  img {
-    width: 100%;
+  img { // 이미지 스타일 설정
+    width: 100%; // 가로 길이 100%
 
-    &.emoji {
-      width: 20px;
-      height: 20px;
+    &.emoji { // .emoji 클래스가 있는 이미지 스타일
+      width: 20px; // 가로 길이 20px
+      height: 20px; // 세로 길이 20px
     }
   }
 }
 
-.sidebar__right {
-  margin-bottom: 1em;
+.sidebar__right { // 오른쪽 사이드바 스타일
+  margin-bottom: 1em; // 하단 여백 설정
 
-  @include breakpoint($large) {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: $right-sidebar-width-narrow;
-    margin-right: -1 * $right-sidebar-width-narrow;
-    padding-left: 1em;
-    z-index: 10;
+  @include breakpoint($large) { // 미디어 쿼리: $large 이상일 때
+    position: absolute; // 절대 위치
+    top: 0; // 상단 정렬
+    right: 0; // 오른쪽 정렬
+    width: $right-sidebar-width-narrow; // 너비 설정
+    margin-right: -1 * $right-sidebar-width-narrow; // 오른쪽 마진 음수 설정
+    padding-left: 1em; // 왼쪽 패딩 설정
+    z-index: 10; // z-index 설정
 
-    &.sticky {
-      @include clearfix();
-      position: -webkit-sticky;
-      position: sticky;
-      top: 2em;
-      float: right;
+    &.sticky { // sticky 클래스가 적용됐을 때
+      @include clearfix(); // clearfix 믹스인 적용
+      position: -webkit-sticky; // 웹킷 sticky
+      position: sticky; // sticky
+      top: 2em; // 상단에서 2em 위치에 고정
+      float: right; // 오른쪽으로 플로팅
 
-      .toc {
-        .toc__menu {
-          overflow-y: auto;
-          max-height: calc(100vh - 7em);
+      .toc { // 목차 요소 스타일
+        .toc__menu { // 목차 메뉴 스타일
+          overflow-y: auto; // y축 스크롤
+          max-height: calc(100vh - 7em); // 최대 높이 설정
         }
       }
     }
   }
 
-  @include breakpoint($x-large) {
-    width: $right-sidebar-width;
-    margin-right: -1 * $right-sidebar-width;
+  @include breakpoint($x-large) { // 미디어 쿼리: $x-large 이상일 때
+    width: $right-sidebar-width; // 너비 설정
+    margin-right: -1 * $right-sidebar-width; // 오른쪽 마진 음수 설정
   }
 }
 
-.splash .sidebar__right {
-  @include breakpoint($large) {
-    position: relative;
-    float: right;
-    margin-right: 0;
+.splash .sidebar__right { // .splash 내에서의 오른쪽 사이드바 스타일
+  @include breakpoint($large) { // 미디어 쿼리: $large 이상일 때
+    position: relative; // 상대 위치
+    float: right; // 오른쪽으로 플로팅
+    margin-right: 0; // 오른쪽 마진 없음
   }
 
-  @include breakpoint($x-large) {
-    margin-right: 0;
+  @include breakpoint($x-large) { // 미디어 쿼리: $x-large 이상일 때
+    margin-right: 0; // 오른쪽 마진 없음
   }
 }
 
@@ -121,205 +107,206 @@
    Author profile and links
    ========================================================================== */
 
-.author__avatar {
-  display: table-cell;
-  vertical-align: top;
-  width: 36px;
-  height: 36px;
+.author__avatar { // 저자 아바타 스타일
+  display: table-cell; // 테이블 셀로 표시
+  vertical-align: top; // 상단 정렬
+  width: 36px; // 너비 36px
+  height: 36px; // 높이 36px
 
-  @include breakpoint($large) {
-    display: block;
-    width: auto;
-    height: auto;
+  @include breakpoint($large) { // 미디어 쿼리: $large 이상일 때
+    display: block; // 블록 요소로 변경
+    width: auto; // 너비 자동
+    height: auto; // 높이 자동
   }
 
-  img {
-    max-width: 110px;
-    border-radius: 50%;
+  img { // 이미지 스타일
+    max-width: 110px; // 최대 가로 길이 110px
+    border-radius: 50%; // 50%의 원형 모서리 설정
 
-    @include breakpoint($large) {
-      padding: 5px;
-      border: 1px solid $border-color;
+    @include breakpoint($large) { // 미디어 쿼리: $large 이상일 때
+      padding: 5px; // 패딩 설정
+      border: 1px solid $border-color; // 테두리 설정
     }
   }
 }
 
-.author__content {
-  display: table-cell;
-  vertical-align: top;
-  padding-left: 15px;
-  padding-right: 25px;
-  line-height: 1;
+.author__content { // 저자 콘텐츠 스타일
+  display: table-cell; // 테이블 셀로 표시
+  vertical-align: top; // 상단 정렬
+  padding-left: 15px; // 왼쪽 패딩 설정
+  padding-right: 25px; // 오른쪽 패딩 설정
+  line-height: 1; // 줄 간격 설정
 
-  @include breakpoint($large) {
-    display: block;
-    width: 100%;
-    padding-left: 0;
-    padding-right: 0;
+  @include breakpoint($large) { // 미디어 쿼리: $large 이상일 때
+    display: block; // 블록 요소로 변경
+    width: 100%; // 너비 100%
+    padding-left: 0; // 왼쪽 패딩 없음
+    padding-right: 0; // 오른쪽 패딩 없음
   }
 
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-}
-
-.author__name {
-  margin: 0;
-
-  @include breakpoint($large) {
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-}
-.sidebar .author__name {
-  font-family: $sans-serif;
-  font-size: $type-size-5;
-}
-
-.author__bio {
-  margin: 0;
-
-  @include breakpoint($large) {
-    margin-top: 10px;
-    margin-bottom: 20px;
+  a { // 링크 스타일
+    color: inherit; // 부모 요소의 색상 상속
+    text-decoration: none; // 텍스트에 밑줄 없음
   }
 }
 
-.author__urls-wrapper {
-  position: relative;
-  display: table-cell;
-  vertical-align: middle;
-  font-family: $sans-serif;
-  z-index: 20;
-  cursor: pointer;
+.author__name { // 저자 이름 스타일
+  margin: 0; // 여백 없음
 
-  li:last-child {
-    a {
-      margin-bottom: 0;
+  @include breakpoint($large) { // 미디어 쿼리: $large 이상일 때
+    margin-top: 10px; // 상단 여백
+    margin-bottom: 10px; // 하단 여백
+  }
+}
+
+.sidebar .author__name { // 사이드바 내에서의 저자 이름 스타일
+  font-family: $sans-serif; // 글꼴 설정
+  font-size: $type-size-5; // 글자 크기 설정
+}
+
+.author__bio { // 저자 소개 스타일
+  margin: 0; // 여백 없음
+
+  @include breakpoint($large) { // 미디어 쿼리: $large 이상일 때
+    margin-top: 10px; // 상단 여백
+    margin-bottom: 20px; // 하단 여백
+  }
+}
+
+.author__urls-wrapper { // 저자 링크 래퍼 스타일
+  position: relative; // 상대 위치
+  display: table-cell; // 테이블 셀로 표시
+  vertical-align: middle; // 중앙 정렬
+  font-family: $sans-serif; // 글꼴 설정
+  z-index: 20; // z-index 설정
+  cursor: pointer; // 커서 모양
+
+  li:last-child { // 마지막 자식 요소
+    a { // 링크 스타일
+      margin-bottom: 0; // 하단 마진 없음
     }
   }
 
-  .author__urls {
-    span.label {
-      padding-left: 5px;
+  .author__urls { // 저자 링크 스타일
+    span.label { // 레이블 스타일
+      padding-left: 5px; // 왼쪽 패딩 설정
     }
   }
 
-  @include breakpoint($large) {
-    display: block;
+  @include breakpoint($large) { // 미디어 쿼리: $large 이상일 때
+    display: block; // 블록 요소로 변경
   }
 
-  button {
-    position: relative;
-    margin-bottom: 0;
+  button { // 버튼 스타일
+    position: relative; // 상대 위치
+    margin-bottom: 0; // 하단 마진 없음
 
-    &:before {
-      @supports (pointer-events: none) {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
+    &:before { // 가상 요소
+      @supports (pointer-events: none) { // pointer-events 속성 지원 시
+        content: ''; // 내용 없음
+        position: fixed; // 고정 위치
+        top: 0; // 상단 정렬
+        left: 0; // 왼쪽 정렬
+        width: 100%; // 가로 길이 100%
+        height: 100%; // 높이 100%
+        pointer-events: none; // 이벤트 무시
       }
     }
 
-    &.open {
-      &:before {
-        pointer-events: auto;
+    &.open { // open 클래스가 적용됐을 때
+      &:before { // 가상 요소
+        pointer-events: auto; // 이벤트 활성화
       }
     }
 
-    @include breakpoint($large) {
-      display: none;
+    @include breakpoint($large) { // 미디어 쿼리: $large 이상일 때
+      display: none; // 숨김
     }
   }
 }
 
-.author__urls {
-  display: none;
-  position: absolute;
-  right: 0;
-  margin-top: 15px;
-  padding: 10px;
-  list-style-type: none;
-  border: 1px solid $border-color;
-  border-radius: $border-radius;
-  background: $background-color;
-  box-shadow: 0 2px 4px 0 rgba(#000, 0.16), 0 2px 10px 0 rgba(#000, 0.12);
-  cursor: default;
+.author__urls { // 저자 링크 스타일
+  display: none; // 숨김
+  position: absolute; // 절대 위치
+  right: 0; // 오른쪽 정렬
+  margin-top: 15px; // 상단 여백
+  padding: 10px; // 패딩 설정
+  list-style-type: none; // 리스트 스타일 없음
+  border: 1px solid $border-color; // 테두리 설정
+  border-radius: $border-radius; // 모서리 반경 설정
+  background: $background-color; // 배경색 설정
+  box-shadow: 0 2px 4px 0 rgba(#000, 0.16), 0 2px 10px 0 rgba(#000, 0.12); // 그림자 효과
+  cursor: default; // 기본 커서
 
-  &.is--visible {
-    display: block;
+  &.is--visible { // is--visible 클래스가 적용됐을 때
+    display: block; // 보임
   }
 
-  @include breakpoint($large) {
-    display: block;
-    position: relative;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    background: transparent;
-    box-shadow: none;
+  @include breakpoint($large) { // 미디어 쿼리: $large 이상일 때
+    display: block; // 보임
+    position: relative; // 상대 위치
+    margin: 0; // 여백 없음
+    padding: 0; // 패딩 없음
+    border: 0; // 테두리 없음
+    background: transparent; // 배경색 투명
+    box-shadow: none; // 그림자 없음
   }
 
-  &:before {
-    display: block;
-    content: "";
-    position: absolute;
-    top: -11px;
-    left: calc(50% - 10px);
-    width: 0;
-    border-style: solid;
-    border-width: 0 10px 10px;
-    border-color: $border-color transparent;
-    z-index: 0;
+  &:before { // 가상 요소
+    display: block; // 보임
+    content: ""; // 내용 없음
+    position: absolute; // 절대 위치
+    top: -11px; // 상단에서 11px 이동
+    left: calc(50% - 10px); // 가운데 정렬
+    width: 0; // 너비 0
+    border-style: solid; // 테두리 스타일
+    border-width: 0 10px 10px; // 테두리 너비
+    border-color: $border-color transparent; // 테두리 색상
+    z-index: 0; // z-index 설정
 
-    @include breakpoint($large) {
-      display: none;
+    @include breakpoint($large) { // 미디어 쿼리: $large 이상일 때
+      display: none; // 숨김
     }
   }
 
-  &:after {
-    display: block;
-    content: "";
-    position: absolute;
-    top: -10px;
-    left: calc(50% - 10px);
-    width: 0;
-    border-style: solid;
-    border-width: 0 10px 10px;
-    border-color: $background-color transparent;
-    z-index: 1;
+  &:after { // 가상 요소
+    display: block; // 보임
+    content: ""; // 내용 없음
+    position: absolute; // 절대 위치
+    top: -10px; // 상단에서 10px 이동
+    left: calc(50% - 10px); // 가운데 정렬
+    width: 0; // 너비 0
+    border-style: solid; // 테두리 스타일
+    border-width: 0 10px 10px; // 테두리 너비
+    border-color: $background-color transparent; // 테두리 색상
+    z-index: 1; // z-index 설정
 
-    @include breakpoint($large) {
-      display: none;
+    @include breakpoint($large) { // 미디어 쿼리: $large 이상일 때
+      display: none; // 숨김
     }
   }
 
-  ul {
-    padding: 10px;
-    list-style-type: none;
+  ul { // 리스트 스타일
+    padding: 10px; // 패딩 설정
+    list-style-type: none; // 리스트 스타일 없음
   }
 
-  li {
-    white-space: nowrap;
+  li { // 리스트 아이템 스타일
+    white-space: nowrap; // 줄 바꿈 금지
   }
 
-  a {
-    display: block;
-    margin-bottom: 5px;
-    padding-right: 5px;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    color: inherit;
-    font-size: $type-size-5;
-    text-decoration: none;
+  a { // 링크 스타일
+    display: block; // 블록 요소로 설정
+    margin-bottom: 5px; // 하단 마진 설정
+    padding-right: 5px; // 오른쪽 패딩 설정
+    padding-top: 2px; // 상단 패딩 설정
+    padding-bottom: 2px; // 하단 패딩 설정
+    color: inherit; // 부모 요소의 색상 상속
+    font-size: $type-size-5; // 글자 크기 설정
+    text-decoration: none; // 텍스트에 밑줄 없음
 
-    &:hover {
-      text-decoration: underline;
+    &:hover { // 호버 상태일 때
+      text-decoration: underline; // 밑줄 표시
     }
   }
 }
@@ -328,26 +315,25 @@
    Wide Pages
    ========================================================================== */
 
-.wide .sidebar__right {
-  margin-bottom: 1em;
+.wide .sidebar__right { // 넓은 페이지에서의 오른쪽 사이드바 스타일
+  margin-bottom: 1em; // 하단 여백 설정
 
-  @include breakpoint($large) {
-    position: initial;
-    top: initial;
-    right: initial;
-    width: initial;
-    margin-right: initial;
-    padding-left: initial;
-    z-index: initial;
+  @include breakpoint($large) { // 미디어 쿼리: $large 이상일 때
+    position: initial; // 초기 위치
+    top: initial; // 초기 위치
+    right: initial; // 초기 위치
+    width: initial; // 초기 너비
+    margin-right: initial; // 초기 마진
+    padding-left: initial; // 초기 패딩
+    z-index: initial; // 초기 z-index
 
-    &.sticky {
-      float: none;
+    &.sticky { // sticky 클래스가 적용됐을 때
+      float: none; // 플로팅 없음
     }
   }
 
-  @include breakpoint($x-large) {
-    width: initial;
-    margin-right: initial;
+  @include breakpoint($x-large) { // 미디어 쿼리: $x-large 이상일 때
+    width: initial; // 초기 너비
+    margin-right: initial; // 초기 마진
   }
 }
-
