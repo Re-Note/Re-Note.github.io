@@ -19,21 +19,3 @@
 </div>
 
 <div class="page__footer-copyright">&copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}. {{ site.data.ui-text[site.locale].powered_by | default: "Powered by" }} <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
-
-
-<div id="visitorCount"></div>
-
-<script>
-function displayVisitorCount() {
-    var gaScript = document.createElement('script');
-    gaScript.src = 'https://www.google-analytics.com/analytics.js';
-    gaScript.onload = function() {
-        var tracker = ga.getAll()[0];
-        var visitorCount = tracker.get('pageviews');
-        document.getElementById('visitorCount').innerHTML = '방문자 수: ' + visitorCount;
-    };
-    document.head.appendChild(gaScript);
-}
-
-displayVisitorCount();
-</script>
