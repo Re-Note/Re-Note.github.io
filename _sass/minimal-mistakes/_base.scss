@@ -1,364 +1,339 @@
 /* ==========================================================================
-   기본 요소
+   BASE ELEMENTS
    ========================================================================== */
 
-/* HTML 기본 스타일 */
-
-html {
-  /* footer가 페이지 하단에 고정되도록 함 */
-  position: relative;
-  min-height: 100%;
-}
-
-/* body 기본 스타일 */
-
-body {
-  margin: 0;
-  padding: 0;
-  color: $text-color; /* 텍스트 색상 */
-  font-family: $global-font-family; /* 전역 폰트 패밀리 */
-  line-height: 1.5;
-
-  /* 내용이 넘칠 때 오버플로우 숨김 */
-  &.overflow--hidden {
-    overflow: hidden;
+   html {
+    /* sticky footer fix */
+    position: relative;
+    min-height: 100%;
   }
-}
-
-/* 제목 */
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 2em 0 0.5em; /* 위쪽과 아래쪽 여백 */
-  line-height: 1.2;
-  font-family: $header-font-family; /* 제목용 폰트 패밀리 */
-  font-weight: bold; /* 굵은 글꼴 */
-}
-
-/* 각 제목 레벨에 따른 스타일 */
-
-h1 {
-  margin-top: 0; /* h1의 위쪽 여백 제거 */
-  font-size: $h-size-1; /* h1의 글꼴 크기 */
-}
-
-h2 {
-  font-size: $h-size-2; /* h2의 글꼴 크기 */
-}
-
-h3 {
-  font-size: $h-size-3; /* h3의 글꼴 크기 */
-}
-
-h4 {
-  font-size: $h-size-4; /* h4의 글꼴 크기 */
-}
-
-h5 {
-  font-size: $h-size-5; /* h5의 글꼴 크기 */
-}
-
-h6 {
-  font-size: $h-size-6; /* h6의 글꼴 크기 */
-}
-
-/* 작은 텍스트 */
-
-small,
-.small {
-  font-size: $type-size-6; /* 작은 텍스트의 글꼴 크기 */
-}
-
-/* 문단 */
-
-p {
-  margin-bottom: 1.3em; /* 아래쪽 여백 */
-}
-
-/* 밑줄과 취소선 스타일 */
-
-u,
-ins {
-  text-decoration: none;
-  border-bottom: 1px solid $text-color; /* 아래쪽 테두리 */
-  a {
-    color: inherit; /* 상위에서 상속된 색상 사용 */
-  }
-}
-
-del a {
-  color: inherit; /* 삭제된 링크에 상위에서 상속된 색상 사용 */
-}
-
-/* 프린트 시 고아와 과부 조정 */
-
-p,
-pre,
-blockquote,
-ul,
-ol,
-dl,
-figure,
-table,
-fieldset {
-  orphans: 3;
-  widows: 3;
-}
-
-/* 약어 */
-
-abbr[title],
-abbr[data-original-title] {
-  text-decoration: none;
-  cursor: help;
-  border-bottom: 1px dotted $text-color; /* 점선 테두리 */
-}
-
-/* 인용구 */
-
-blockquote {
-  margin: 2em 1em 2em 0; /* 여백 */
-  padding-left: 1em; /* 왼쪽 안쪽 여백 */
-  padding-right: 1em; /* 오른쪽 안쪽 여백 */
-  font-style: italic; /* 이탤릭체 */
-  border-left: 0.25em solid $primary-color; /* 왼쪽 테두리 색상 */
-
-  /* 인용된 문장 스타일 */
-  cite {
-    font-style: italic;
-
-    /* 인용 부호 */
-    &:before {
-      content: "\2014"; /* em dash */
-      padding-right: 5px;
+  
+  body {
+    margin: 0;
+    padding: 0;
+    color: $text-color;
+    font-family: $global-font-family;
+    line-height: 1.5;
+  
+    &.overflow--hidden {
+      /* when primary navigation is visible, the content in the background won't scroll */
+      overflow: hidden;
     }
   }
-}
-
-/* 링크 */
-
-a {
-  text-decoration: none; /* 밑줄 제거 */
-
-  /* 포커스 스타일 */
-  &:focus {
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 2em 0 0.5em;
+    line-height: 1.2;
+    font-family: $header-font-family;
+    font-weight: bold;
+  }
+  
+  h1 {
+    margin-top: 0;
+    font-size: $h-size-1;
+  }
+  
+  h2 {
+    font-size: $h-size-2;
+  }
+  
+  h3 {
+    font-size: $h-size-3;
+  }
+  
+  h4 {
+    font-size: $h-size-4;
+  }
+  
+  h5 {
+    font-size: $h-size-5;
+  }
+  
+  h6 {
+    font-size: $h-size-6;
+  }
+  
+  small,
+  .small {
+    font-size: $type-size-6;
+  }
+  
+  p {
+    margin-bottom: 1.3em;
+  }
+  
+  u,
+  ins {
+    text-decoration: none;
+    border-bottom: 1px solid $text-color;
+    a {
+      color: inherit;
+    }
+  }
+  
+  del a {
+    color: inherit;
+  }
+  
+  /* reduce orphans and widows when printing */
+  
+  p,
+  pre,
+  blockquote,
+  ul,
+  ol,
+  dl,
+  figure,
+  table,
+  fieldset {
+    orphans: 3;
+    widows: 3;
+  }
+  
+  /* abbreviations */
+  
+  abbr[title],
+  abbr[data-original-title] {
+    text-decoration: none;
+    cursor: help;
+    border-bottom: 1px dotted $text-color;
+  }
+  
+  /* blockquotes */
+  
+  blockquote {
+    margin: 2em 1em 2em 0;
+    padding-left: 1em;
+    padding-right: 1em;
+    font-style: italic;
+    border-left: 0.25em solid $primary-color;
+  
+    cite {
+      font-style: italic;
+  
+      &:before {
+        content: "\2014";
+        padding-right: 5px;
+      }
+    }
+  }
+  
+  /* links */
+  
+  a {
+    &:focus {
+      @extend %tab-focus;
+    }
+  
+    &:visited {
+      color: $link-color-visited;
+    }
+  
+    &:hover {
+      color: $link-color-hover;
+      outline: 0;
+    }
+  }
+  
+  /* buttons */
+  
+  button:focus {
     @extend %tab-focus;
   }
-
-  /* 방문한 링크 색상 */
-  &:visited {
-    color: $link-color-visited;
+  
+  /* code */
+  
+  tt,
+  code,
+  kbd,
+  samp,
+  pre {
+    font-family: $monospace;
   }
-
-  /* 호버 스타일 */
-  &:hover {
-    color: $link-color-hover; /* 호버 색상 */
-    outline: 0; /* 아웃라인 제거 */
+  
+  pre {
+    overflow-x: auto; /* add scrollbars to wide code blocks*/
   }
-}
-
-/* 버튼 */
-
-button:focus {
-  @extend %tab-focus;
-}
-
-/* 코드 */
-
-tt,
-code,
-kbd,
-samp,
-pre {
-  font-family: $monospace; /* 고정폭 글꼴 패밀리 */
-}
-
-pre {
-  overflow-x: auto; /* 너비가 너무 긴 코드 블록에 스크롤바 추가 */
-}
-
-/* 수평선 */
-
-hr {
-  display: block; /* 블록 레벨 요소 */
-  margin: 1em 0; /* 여백 */
-  border: 0;
-  border-top: 1px solid $border-color; /* 위쪽 테두리 색상 */
-}
-
-/* 목록 */
-
-ul li,
-ol li {
-  margin-bottom: 0.5em; /* 목록 아이템 아래쪽 여백 */
-}
-
-li ul,
-li ol {
-  margin-top: 0.5em; /* 중첩 목록 위쪽 여백 */
-}
-
-/*
-   미디어 및 삽입물
-   ========================================================================== */
-
-/* 그림 및 이미지 */
-
-figure {
-  display: -webkit-box; /* 오래된 WebKit에 대한 플렉스박스 디스플레이 */
-  display: flex; /* 플렉스박스 디스플레이 */
-  -webkit-box-pack: justify; /* 콘텐츠 정렬 */
-  justify-content: space-between; /* 콘텐츠 정렬 */
-  -webkit-box-align: start; /* 항목 정렬 */
-  align-items: flex-start; /* 항목 정렬 */
-  flex-wrap: wrap; /* 항목이 줄 바꿈되도록 함 */
-  margin: 2em 0; /* 여백 */
-
-  img,
-  iframe,
-  .fluid-width-video-wrapper {
-    margin-bottom: 1em; /* 아래쪽 여백 */
+  
+  /* horizontal rule */
+  
+  hr {
+    display: block;
+    margin: 1em 0;
+    border: 0;
+    border-top: 1px solid $border-color;
   }
-
-  img {
-    width: 100%; /* 전체 너비 */
-    border-radius: $border-radius; /* 테두리 반경 */
-    -webkit-transition: $global-transition; /* 전역 트랜지션 */
-    transition: $global-transition; /* 전역 트랜지션 */
-  }
-
-  > a {
-    display: block; /* 블록 레벨 요소 */
-  }
-
-  &.half {
-    > a,
-    > img {
-      @include breakpoint($small) {
-        width: calc(50% - 0.5em); /* 작은 화면에 대한 너비 */
-      }
-    }
-
-    figcaption {
-      width: 100%; /* 설명 글의 전체 너비 */
-    }
-  }
-
-  &.third {
-    > a,
-    > img {
-      @include breakpoint($small) {
-        width: calc(33.3333% - 0.5em); /* 작은 화면에 대한 너비 */
-      }
-    }
-
-    figcaption {
-      width: 100%; /* 설명 글의 전체 너비 */
-    }
-  }
-}
-
-/* 그림 설명 */
-
-figcaption {
-  margin-bottom: 0.5em; /* 아래쪽 여백 */
-  color: $muted-text-color; /* 약한 텍스트 색상 */
-  font-family: $caption-font-family; /* 설명 글의 폰트 패밀리 */
-  font-size: $type-size-6; /* 설명 글의 글꼴 크기 */
-
-  /* 설명 글 내 링크 스타일 */
-  a {
-    -webkit-transition: $global-transition; /* 전역 트랜지션 */
-    transition: $global-transition; /* 전역 트랜지션 */
-
-    /* 호버 시 스타일 */
-    &:hover {
-      color: $link-color-hover; /* 호버 색상 */
-    }
-  }
-}
-
-/* IE9 SVG 버그 수정 */
-
-svg:not(:root) {
-  overflow: hidden; /* IE9에서 SVG 버그 수정 */
-}
-
-/*
-   내비게이션 목록
-   ========================================================================== */
-
-/**
- * 내비게이션 목록에서 여백, 패딩, 불릿 포인트 제거
- *
- * 사용 예:
- * <nav>
- *    <ul>
- *      <li><a href="#link-1">링크 1</a></li>
- *      <li><a href="#link-2">링크 2</a></li>
- *      <li><a href="#link-3">링크 3</a></li>
- *    </ul>
- *  </nav>
- */
-
-nav {
-  ul {
-    margin: 0; /* 여백 제거 */
-    padding: 0; /* 패딩 제거 */
-  }
-
-  li {
-    list-style: none; /* 불릿 포인트 제거 */
-  }
-
-  a {
-    text-decoration: none; /* 밑줄 제거 */
-  }
-
-  /* 중첩된 목록을 위한 white-space 재정의 */
+  
+  /* lists */
+  
   ul li,
   ol li {
-    margin-bottom: 0; /* 중첩 목록 아이템의 아래쪽 여백 제거 */
+    margin-bottom: 0.5em;
   }
-
+  
   li ul,
   li ol {
-    margin-top: 0; /* 중첩 목록의 위쪽 여백 제거 */
+    margin-top: 0.5em;
   }
-}
-
-/*
-   전역 애니메이션 전환
-   ========================================================================== */
-
-/* 여러 요소에 전역 전환 적용 */
-
-b,
-i,
-strong,
-em,
-blockquote,
-p,
-q,
-span,
-figure,
-img,
-h1,
-h2,
-header,
-input,
-a,
-tr,
-td,
-form button,
-input[type="submit"],
-.btn,
-.highlight,
-.archive__item-teaser {
-  -webkit-transition: $global-transition; /* Webkit 전환 */
-  transition: $global-transition; /* 전환 */
-}
+  
+  /*
+     Media and embeds
+     ========================================================================== */
+  
+  /* Figures and images */
+  
+  figure {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin: 2em 0;
+  
+    img,
+    iframe,
+    .fluid-width-video-wrapper {
+      margin-bottom: 1em;
+    }
+  
+    img {
+      width: 100%;
+      border-radius: $border-radius;
+      -webkit-transition: $global-transition;
+      transition: $global-transition;
+    }
+  
+    > a {
+      display: block;
+    }
+  
+    &.half {
+      > a,
+      > img {
+        @include breakpoint($small) {
+          width: calc(50% - 0.5em);
+        }
+      }
+  
+      figcaption {
+        width: 100%;
+      }
+    }
+  
+    &.third {
+      > a,
+      > img {
+        @include breakpoint($small) {
+          width: calc(33.3333% - 0.5em);
+        }
+      }
+  
+      figcaption {
+        width: 100%;
+      }
+    }
+  }
+  
+  /* Figure captions */
+  
+  figcaption {
+    margin-bottom: 0.5em;
+    color: $muted-text-color;
+    font-family: $caption-font-family;
+    font-size: $type-size-6;
+  
+    a {
+      -webkit-transition: $global-transition;
+      transition: $global-transition;
+  
+      &:hover {
+        color: $link-color-hover;
+      }
+    }
+  }
+  
+  /* Fix IE9 SVG bug */
+  
+  svg:not(:root) {
+    overflow: hidden;
+  }
+  
+  /*
+     Navigation lists
+     ========================================================================== */
+  
+  /**
+   * Removes margins, padding, and bullet points from navigation lists
+   *
+   * Example usage:
+   * <nav>
+   *    <ul>
+   *      <li><a href="#link-1">Link 1</a></li>
+   *      <li><a href="#link-2">Link 2</a></li>
+   *      <li><a href="#link-3">Link 3</a></li>
+   *    </ul>
+   *  </nav>
+   */
+  
+  nav {
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+  
+    li {
+      list-style: none;
+    }
+  
+    a {
+      text-decoration: none;
+    }
+  
+    /* override white-space for nested lists */
+    ul li,
+    ol li {
+      margin-bottom: 0;
+    }
+  
+    li ul,
+    li ol {
+      margin-top: 0;
+    }
+  }
+  
+  /*
+     Global animation transition
+     ========================================================================== */
+  
+  b,
+  i,
+  strong,
+  em,
+  blockquote,
+  p,
+  q,
+  span,
+  figure,
+  img,
+  h1,
+  h2,
+  header,
+  input,
+  a,
+  tr,
+  td,
+  form button,
+  input[type="submit"],
+  .btn,
+  .highlight,
+  .archive__item-teaser {
+    -webkit-transition: $global-transition;
+    transition: $global-transition;
+  }
