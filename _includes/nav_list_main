@@ -11,7 +11,7 @@
       </li>
       <li>
         <!--span 태그로 카테고리들을 크게 분류 ex) C/C++/C#-->
-        <span class="nav__sub-title">certificate</span>
+        <span class="nav__sub-title">Computer_Science</span>
             <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
             <ul>
                 <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/cpp 주소의 글로 링크 연결-->
@@ -24,7 +24,7 @@
             </ul>
       </li>
       <li>
-        <span class="nav__sub-title">computer_science</span>
+        <span class="nav__sub-title">Github_Blog</span>
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "Github_Blog" %}
@@ -34,7 +34,7 @@
             </ul>
       </li>
       <li>
-        <span class="nav__sub-title">Coding_Test</span>
+        <span class="nav__sub-title">Extern_Activity</span>
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "Extern_Activity" %}
@@ -44,7 +44,7 @@
             </ul>
       </li>
       <li>
-        <span class="nav__sub-title">Coding_Test</span>
+        <span class="nav__sub-title">Mini_Project</span>
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "Mini_Project" %}
@@ -54,7 +54,7 @@
             </ul>
       </li>
       <li>
-        <span class="nav__sub-title">Coding_Test</span>
+        <span class="nav__sub-title">Algorithm_Test</span>
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "Algorithm_Test" %}
@@ -64,7 +64,7 @@
             </ul>
       </li>
       <li>
-        <span class="nav__sub-title">Coding_Test</span>
+        <span class="nav__sub-title">Certificate</span>
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "Certificate" %}
@@ -74,7 +74,7 @@
             </ul>
       </li>
       <li>
-        <span class="nav__sub-title">Coding_Test</span>
+        <span class="nav__sub-title">Code_Idea</span>
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "Code_Idea" %}
